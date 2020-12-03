@@ -20,6 +20,10 @@ const theme = extendTheme({
       light: "#FF3D3D",
       inactive: "#FFECEC",
     },
+    border: {
+      grey: "#DDDDDD",
+      red: "#F53838",
+    },
   },
   fonts,
   breakpoints,
