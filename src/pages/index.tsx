@@ -4,6 +4,7 @@ import Container from "../components/Container";
 import MainComponent from "../containers/Main";
 import Features from "../containers/Features";
 import PlanContainer from "../containers/PlanContainer";
+import Network from "../containers/Network";
 
 export interface IndexProps {}
 
@@ -14,6 +15,7 @@ const Index: React.FC<IndexProps> = ({}) => {
         <MainComponent />
         <Features />
         <PlanContainer />
+        <Network />
       </Container>
     </Box>
   );
