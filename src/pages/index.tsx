@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
 import Container from "../components/Container";
-import MainComponent from "../components/MainComponent";
+import MainComponent from "../containers/MainComponent";
 
 export interface IndexProps {}
 

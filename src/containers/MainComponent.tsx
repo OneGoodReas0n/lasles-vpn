@@ -1,8 +1,8 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
 import Header from "../components/Header";
-import IntroComponent from "./IntroComponent";
-import StatisticComponent from "./StatisticComponent";
+import IntroComponent from "../components/IntroComponent";
+import StatisticComponent from "../components/StatisticComponent";
 
 export interface MainComponentProps {}
 

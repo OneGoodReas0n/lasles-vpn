@@ -44,7 +44,6 @@ const StatisticComponent: React.FC<StatisticComponentProps> = ({
         align="center"
       >
         {items.map((i, index) => {
-          console.log(i);
           if (i.item === "Divider") {
             return <Box w="2px" h="125px" bg="#EEEFF2" key={index}></Box>;
           }
