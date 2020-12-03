@@ -71,8 +71,12 @@ const PlanComponent: React.FC<PlanComponentProps> = ({
               textAlign="center"
             >
               ${price}{" "}
-              <Text as="span" fontSize="25px" fontWeight="normal">
-                / mo
+              <Text as="span" fontSize="25px" fontWeight="normal" color="black">
+                /
+              </Text>
+              <Text as="span" fontSize="25px" fontWeight="normal" color="grey">
+                {" "}
+                mo
               </Text>
             </Text>
           )}
