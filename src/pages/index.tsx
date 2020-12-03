@@ -1,9 +1,18 @@
 import React from "react";
+import { Box } from "@chakra-ui/react";
+import Container from "../components/Container";
+import MainComponent from "../components/MainComponent";
 
 export interface IndexProps {}
 
 const Index: React.FC<IndexProps> = ({}) => {
-  return <div></div>;
+  return (
+    <Box>
+      <Container>
+        <MainComponent />
+      </Container>
+    </Box>
+  );
 };
 
 export default Index;
