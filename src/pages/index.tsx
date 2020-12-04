@@ -5,6 +5,7 @@ import MainComponent from "../containers/Main";
 import Features from "../containers/Features";
 import PlanContainer from "../containers/PlanContainer";
 import Network from "../containers/Network";
+import Comments from "../containers/Comments";
 
 export interface IndexProps {}
 
@@ -17,6 +18,7 @@ const Index: React.FC<IndexProps> = ({}) => {
         <PlanContainer />
         <Network />
       </Container>
+      <Comments />
     </Box>
   );
 };
