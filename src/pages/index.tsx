@@ -7,6 +7,7 @@ import PlanContainer from "../containers/PlanContainer";
 import Network from "../containers/Network";
 import Comments from "../containers/Comments";
 import Subscribe from "../containers/Subscribe";
+import Footer from "../containers/Footer";
 
 export interface IndexProps {}
 
@@ -22,6 +23,7 @@ const Index: React.FC<IndexProps> = ({}) => {
       <Comments />
       <Container>
         <Subscribe />
+        <Footer />
       </Container>
     </Box>
   );
