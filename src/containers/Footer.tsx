@@ -6,6 +6,20 @@ import LinkList, { LinkListProps } from "../components/LinkList";
 export interface FooterProps {}
 
 const Footer: React.FC<FooterProps> = ({}) => {
+  const socials = [
+    {
+      title: "facebook",
+      url: "/images/socials/facebook.svg",
+    },
+    {
+      title: "twitter",
+      url: "/images/socials/twitter.svg",
+    },
+    {
+      title: "instagram",
+      url: "/images/socials/instagram.svg",
+    },
+  ];
   const linkLists: LinkListProps[] = [
     {
       links: [
@@ -56,21 +70,18 @@ const Footer: React.FC<FooterProps> = ({}) => {
               security.
             </Text>
             <Stack direction="row" spacing="20px">
-              <NextLink href="/facebook">
-                <Link>
-                  <Image src="/images/socials/facebook.svg" />
-                </Link>
-              </NextLink>
-              <NextLink href="/twitter">
-                <Link>
-                  <Image src="/images/socials/twitter.svg" />
-                </Link>
-              </NextLink>
-              <NextLink href="/twitter">
-                <Link>
-                  <Image src="/images/socials/instagram.svg" />
-                </Link>
-              </NextLink>
+              {socials.map((s) => (
+                <NextLink href={`/${s.title}`} key={s.title}>
+                  <Link
+                    border="1px solid"
+                    borderColor="primary.init"
+                    borderRadius="50%"
+                    _hover={{ bg: "primary.init" }}
+                  >
+                    <Image src={s.url} />
+                  </Link>
+                </NextLink>
+              ))}
             </Stack>
             <Text color="blankgrey">
               {" "}
@@ -81,9 +92,9 @@ const Footer: React.FC<FooterProps> = ({}) => {
             </Text>
           </Stack>
         </Stack>
-        <Stack direction="row" spacing="100px">
+        <Stack direction="row" spacing="80px">
           {linkLists.map((link) => (
-            <LinkList title={link.title} links={link.links} />
+            <LinkList title={link.title} links={link.links} key={link.title} />
           ))}
         </Stack>
       </Stack>

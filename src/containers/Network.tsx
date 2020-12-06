@@ -38,7 +38,7 @@ const Network: React.FC<NetworkProps> = ({}) => {
       </Stack>
       <Stack direction="row" spacing="40px" justify="center" align="center">
         {apps.map((a) => (
-          <Image src={a} />
+          <Image src={a} key={a}/>
         ))}
       </Stack>
     </Box>
