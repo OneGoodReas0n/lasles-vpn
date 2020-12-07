@@ -1,5 +1,5 @@
+import { Box, Image, Stack, Text } from "@chakra-ui/react";
 import React from "react";
-import { Box, Stack, Image, Text } from "@chakra-ui/react";
 
 export interface CommentCardProps {
   avatarSrc: string;
@@ -22,7 +22,8 @@ const CommentCard: React.FC<CommentCardProps> = ({
       border="2px solid"
       borderColor="border.grey"
       p="30px"
-      w="400px"
+      mr="20px"
+      minH="240px"
     >
       <Stack spacing="20px">
         <Stack direction="row" align="center" justify="space-between">

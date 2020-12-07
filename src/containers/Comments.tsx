@@ -1,11 +1,69 @@
-import React from "react";
-import { Box, Heading, Text, Stack, Flex, Image } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Box, Heading, Text, Stack, Flex } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import CommentCard, { CommentCardProps } from "../components/CommentCard";
+import Slider, { Settings } from "react-slick";
 
 export interface CommentsProps {}
 
 const Comments: React.FC<CommentsProps> = ({}) => {
+  const PrevBtn = (props) => {
+    const { onClick } = props;
+    return (
+      <Flex
+        position="absolute"
+        top="270px"
+        right="70px"
+        justifyContent="center"
+        alignItems="center"
+        w="60px"
+        h="60px"
+        border="2px solid"
+        borderColor="primary.init"
+        borderRadius="50%"
+        as="button"
+        onClick={onClick}
+        outline="none"
+      >
+        <ArrowBackIcon color="primary.init" fontSize="30px" />
+      </Flex>
+    );
+  };
+
+  const NextBtn = (props) => {
+    const { onClick } = props;
+    return (
+      <Flex
+        position="absolute"
+        top="270px"
+        right="0"
+        justifyContent="center"
+        alignItems="center"
+        as="button"
+        w="60px"
+        h="60px"
+        bg="primary.init"
+        borderRadius="50%"
+        onClick={onClick}
+        outline="none"
+      >
+        <ArrowBackIcon
+          color="white"
+          fontSize="30px"
+          transform="rotate(180deg)"
+        />
+      </Flex>
+    );
+  };
+
+  const settings: Settings = {
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    infinite: false,
+    speed: 500,
+    prevArrow: <PrevBtn />,
+    nextArrow: <NextBtn />,
+  };
   const comments: CommentCardProps[] = [
     {
       avatarSrc: "/images/avatars/man1.svg",
@@ -31,9 +89,17 @@ const Comments: React.FC<CommentsProps> = ({}) => {
       name: "Kim Young Jou",
       rate: 4.5,
     },
+    {
+      avatarSrc: "/images/avatars/man2.svg",
+      comment: "“They have made everything so easy for me. Great work ! ”.",
+      location: "New York, USA",
+      name: "Jane Dou",
+      rate: 5,
+    },
   ];
+
   return (
-    <Box mt="50px" pl="60px">
+    <Box mt="50px" px="30px">
       <Stack spacing="20px" align="center">
         <Heading
           w="45%"
@@ -51,8 +117,8 @@ const Comments: React.FC<CommentsProps> = ({}) => {
           pleasure when using this crazy feature.
         </Text>
       </Stack>
-      <Box mt="60px">
-        <Stack direction="row" spacing="50px">
+      <Box mt="60px" overflow="hidden">
+        <Slider {...settings} className="slider">
           {comments.map((c) => (
             <CommentCard
               key={c.name}
@@ -63,42 +129,10 @@ const Comments: React.FC<CommentsProps> = ({}) => {
               rate={c.rate}
             />
           ))}
-        </Stack>
+        </Slider>
       </Box>
       <Flex mt="60px" justifyContent="space-between" alignItems="center">
-        <Stack spacing="15px" direction="row">
-          <Box w="45px" h="15px" bg="primary.init" borderRadius="20px"></Box>
-          <Box w="15px" h="15px" bg="lightgrey" borderRadius="50%"></Box>
-          <Box w="15px" h="15px" bg="lightgrey" borderRadius="50%"></Box>
-          <Box w="15px" h="15px" bg="lightgrey" borderRadius="50%"></Box>
-        </Stack>
-        <Stack direction="row" spacing="20px">
-          <Flex
-            justifyContent="center"
-            alignItems="center"
-            w="60px"
-            h="60px"
-            border="2px solid"
-            borderColor="primary.init"
-            borderRadius="50%"
-          >
-            <ArrowBackIcon color="primary.init" fontSize="30px" />
-          </Flex>
-          <Flex
-            justifyContent="center"
-            alignItems="center"
-            w="60px"
-            h="60px"
-            bg="primary.init"
-            borderRadius="50%"
-          >
-            <ArrowBackIcon
-              color="white"
-              fontSize="30px"
-              transform="rotate(180deg)"
-            />
-          </Flex>
-        </Stack>
+        {/* <Box w="45px" h="15px" bg="primary.init" borderRadius="20px"></Box> */}
       </Flex>
     </Box>
   );
