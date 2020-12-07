@@ -5,12 +5,22 @@ import {
   Image,
   Stack,
   Text,
+  ButtonProps,
 } from "@chakra-ui/react";
 import React from "react";
+import { RegistrationFormProps } from "./RegistrationForm";
 
-export interface IntroComponentProps extends BoxProps {}
+export interface IntroComponentProps
+  extends RegistrationFormProps,
+    ButtonProps {}
 
-const IntroComponent: React.FC<IntroComponentProps> = ({ ...options }) => {
+const IntroComponent: React.FC<IntroComponentProps> = ({
+  formState,
+  isModalOpen,
+  setForm,
+  setModalOpen,
+  ...options
+}) => {
   return (
     <Stack direction="row" {...options} align="center">
       <Stack spacing="50px">
@@ -37,6 +47,7 @@ const IntroComponent: React.FC<IntroComponentProps> = ({ ...options }) => {
           mt="50px"
           fontWeight="600"
           _hover={{ bg: "primary.dark" }}
+          onClick={() => setModalOpen(true)}
         >
           Get Started
         </Button>
