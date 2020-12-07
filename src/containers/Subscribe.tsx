@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Stack, Heading, Text, Button } from "@chakra-ui/react";
+import SubscribeForm from "../components/SubscribeForm";
 
 export interface SubscribeProps {}
 
 const Subscribe: React.FC<SubscribeProps> = ({}) => {
+  const [isModalOpen, setModalOpen] = useState(false);
   return (
-    <Box mt="65px" px="70px" py="58px" boxShadow="2xl" borderRadius="10px">
+    <Box px="70px" py="58px" boxShadow="2xl" borderRadius="10px">
       <Stack direction="row" justify="space-between" align="center">
         <Stack spacing="20px">
           <Heading
@@ -28,10 +30,12 @@ const Subscribe: React.FC<SubscribeProps> = ({}) => {
           h="60px"
           boxShadow="xl"
           _hover={{ bg: "primary.dark" }}
+          onClick={() => setModalOpen(true)}
         >
           Subsribe Now
         </Button>
       </Stack>
+      <SubscribeForm setModalOpen={setModalOpen} isModalOpen={isModalOpen} />
     </Box>
   );
 };
